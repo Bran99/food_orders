@@ -3,24 +3,26 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Bran99/food_orders.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Bran99/food_orders/issues"
-  },
-  "homepage": "https://github.com/Bran99/food_orders#readme",
   "dependencies": {
     "body-parser": "^1.13.1",
     "ejs": "^2.3.1",
     "express": "^4.13.0",
     "method-override": "^2.3.3",
-    "mongodb": "^2.0.35"
-  }
+    "mongodb": "^2.0.35",
+    "mongoose": "^4.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/llamle/food_orders.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/llamle/food_orders/issues"
+  },
+  "homepage": "https://github.com/llamle/food_orders#readme"
 }
