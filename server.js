@@ -57,12 +57,21 @@ app.get('/restaurant/order/:id', function (req, res) {
         });
 });
 
-// EDIT
+// EDIT ORDER
 app.get('/restaurant/order/:id/edit', function (req, res) {
   var id = new ObjectId(req.params.id);
   app.db.collection('orders')
         .findOne( { _id : id }, function (err, orders) {
           res.render('order_edit.ejs', { orders : orders });
+        });
+});
+
+// EDIT MENU
+app.get('/restaurant/menu/edit', function (req, res) {
+  app.db.collection('menu')
+        .find()
+        .toArray(function (err, menuArray) {
+          res.render('menu_edit.ejs', { menu : menuArray });
         });
 });
 
