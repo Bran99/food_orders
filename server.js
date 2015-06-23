@@ -106,7 +106,7 @@ app.get('/restaurant/menu', function (req, res) {
 })
 
 // EDIT ORDER
-app.get('/restaurant/order/:id/edit', function (req, res) {
+app.get('/restaurant/order/edit/:id', function (req, res) {
   db.collection('menu')
     .findById(req.params.id, function (err, order) {
       if (err) {
