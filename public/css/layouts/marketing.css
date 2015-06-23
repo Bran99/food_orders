@@ -91,7 +91,7 @@ a.pure-button-primary {
  */
 
 .home-menu {
-    padding: 0.5em;
+    padding: 0em;
     text-align: center;
     box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
 }
@@ -259,7 +259,7 @@ a.pure-button-primary {
     /* We decrease the width of the .splash, since we have more width
     to work with */
     .splash {
-        width: 57%;
+        width: 47%;
         height: 47%;
     }
 
