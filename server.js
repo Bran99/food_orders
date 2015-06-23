@@ -39,15 +39,6 @@ var orderSchema = Schema({
 
 var Menu = mongoose.model('Menu', menuSchema);
 var Order = mongoose.model('Order', menuSchema);
-// MongoClient.connect(url, function (err, db) {
-// 	if (err) { throw err };
-//
-// 	app.db = db;
-//
-//   app.listen(1337, function () {
-//     console.log('Listening on our 1337 port 1337');
-//   });
-// });
 
 // INDEX
 app.get('/restaurant', function (req, res) {
@@ -56,7 +47,7 @@ app.get('/restaurant', function (req, res) {
 
 // NEW
 app.get('/restaurant/order', function (req, res) {
-  db.collection('menu').find({}, function (err, menuArray) {
+  Menu.find({}, function (err, menuArray) {
     if (err) {
       console.log(err);
     } else {
@@ -79,7 +70,7 @@ app.post('/restaurant', function (req, res) {
 
 // CREATE MENU
 app.post('/restaurant/menu', function (req, res) {
-  Menu.create(req.body.orders, function (err, result) {
+  Menu.create(req.body.menu, function (err, result) {
     if (err) {
       console.log(err);
     } else {
@@ -90,8 +81,7 @@ app.post('/restaurant/menu', function (req, res) {
 
 // SHOW ORDER
 app.get('/restaurant/order/:id', function (req, res) {
-  db.collection('orders')
-    .findById(req.params.id, function (err, order) {
+  Order.findById(req.params.id, function (err, order) {
     if (err) {
       console.log(err);
     } else {
@@ -107,8 +97,7 @@ app.get('/restaurant/menu', function (req, res) {
 
 // EDIT ORDER
 app.get('/restaurant/order/edit/:id', function (req, res) {
-  db.collection('menu')
-    .findById(req.params.id, function (err, order) {
+  Menu.findById(req.params.id, function (err, order) {
       if (err) {
         console.log(err);
       } else {
