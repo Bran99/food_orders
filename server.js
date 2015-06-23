@@ -125,7 +125,7 @@ app.get('/restaurant/menu/edit', function (req, res) {
 // UPDATE
 app.patch('/restaurant/order/:id', function (req, res) {
   var id = new ObjectId(req.params.id);
-  Order.update({_id : id}, function (err, result), req.body.orders, function (err, result) {
+  Order.update({_id : id}, req.body.orders, function (err, result) {
     if (err) {
       console.log(err);
     } else {
