@@ -36,6 +36,9 @@ var menuSchema = Schema({
 var orderSchema = Schema({
   items: [menuSchema];
 });
+
+var Menu = mongoose.model('Menu', menuSchema);
+var Order = mongoose.model('Order', menuschema);
 // MongoClient.connect(url, function (err, db) {
 // 	if (err) { throw err };
 //
