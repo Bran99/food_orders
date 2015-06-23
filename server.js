@@ -5,7 +5,9 @@ var express        = require('express'),
     bodyParser     = require('body-parser'),
     MongoClient    = require('mongodb').MongoClient,
     ObjectId       = require('mongodb').ObjectId,
-    url            = 'mongodb://localhost:27017/restaurant';
+    url            = 'mongodb://localhost:27017/restaurant',
+    mongoose       = require('mongoose'),
+    Schema         = mongoose.Schema;
 
 app.set('view engine', 'ejs');
 app.set('views', './views');
@@ -14,16 +16,35 @@ app.use(express.static('./public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
-// CONNECT TO MONGODB
-MongoClient.connect(url, function (err, db) {
-	if (err) { throw err };
+// CONNECT TO MONGOOSE
+mongoose.connect(url);
+var db = mongoose.connection;
 
-	app.db = db;
-
+db.once('open', function () {
   app.listen(1337, function () {
     console.log('Listening on our 1337 port 1337');
-  });
+  }
+})
+
+var menuSchema = Schema({
+  name: {type : String, required : true},
+  description: String,
+  price: {type : Number, required : true},
+  type: String
 });
+
+var orderSchema = Schema({
+  items: [menuSchema];
+});
+// MongoClient.connect(url, function (err, db) {
+// 	if (err) { throw err };
+//
+// 	app.db = db;
+//
+//   app.listen(1337, function () {
+//     console.log('Listening on our 1337 port 1337');
+//   });
+// });
 
 // INDEX
 app.get('/restaurant', function (req, res) {
