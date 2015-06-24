@@ -13,15 +13,11 @@ var UserSchema = new Schema({
 // Password hashing middleware
 UserSchema.pre('save', function(next){
   var user = this;
-// This only hashes if the password is new or modified
-  if (!user.isModified('password')) return next();
-// This generates the Salted hash
-  bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt){
-    if (err) return next(err);
-// This hashes password with new salt
+  if (!user.isModified('password')) return next();                       // This only hashes if the password is new or modified
+  bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt){                  // This generates the Salted hash
+    if (err) return next(err);                                           // This hashes password with new salt
     bcrypt.hash(user.password, salt, function(err, hash){
-      if (err) return next(err)
-// This overwrites the plantext password with a hash
+      if (err) return next(err)                                          // This overwrites the plantext password with a hash
         user.password = hash
         next();
     });
@@ -37,3 +33,6 @@ UserSchema.methods.comparePassword = function(candidatePassword, cb){
 };
 
 module.exports = mongoose.model('Users', UserSchema);
+
+
+// Login form
