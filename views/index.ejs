@@ -1,157 +1,100 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="A layout example that shows off a responsive product landing page.">
-<title>RESTaurant</title>
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-<!--[if lte IE 8]>
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Restaurant</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body class="homepage">
+		<div id="page-wrapper">
 
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
+			<!-- Header -->
+				<div id="header-wrapper" class="wrapper">
+					<div id="header">
 
-<![endif]-->
-<!--[if gt IE 8]><!-->
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
-  <!--<![endif]-->
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-<!--[if lte IE 8]>
-        <link rel="stylesheet" href="css/layouts/marketing-old-ie.css">
-    <![endif]-->
-    <!--[if gt IE 8]><!-->
-<link rel="stylesheet" href="css/layouts/marketing.css">
-    <!--<![endif]-->
-</head>
-<body>
+						<!-- Logo -->
+							<div id="logo">
+								<h1><a href="index.html">22 Berry Restaurant</br> Fast and Tasty</a></h1>
+								<p>Homemade/Organic/Fresh go Fast!</p>
+								<button id='placeanorder'>Place An Order</button>
+							</div>
 
-<div class="header">
-    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-        <a class="pure-menu-heading" href="">22 berry RESTautrant</br>
-        Fast and Furious delievery.<br></a>
-        <ul class="pure-menu-list">
-            <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Home</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Menu</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Order</a></li>
-        </ul>
-    </div>
-</div>
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li class="current"><a href="index.html">Home</a></li>
+									<li>
+										<a href="restaurant/order">Order</a>
+							<li>
+											<a href="/restaurant/order/:id">View Order</a>
+								</li>
+							<li>
+											<a href="/login">Log In</a>
+								</li>
+							</nav>
+					</div>
+				</div>
 
-<div class="splash-container">
-    <div class="splash">
-        <h1 class="splash-head">Fast and Tasty</h1>
-        <p class="splash-subhead">
-Handmade bread, 100% organic meat and vegetables, we are here to serve you best lunch in NYC!
-        </p>
-        <p>
-            <a href="http://purecss.io" class="pure-button pure-button-primary">Place an order</a>
-        </p>
-    </div>
-</div>
+			<!-- Highlights -->
+				<div class="wrapper style3">
+					<div class="title">The Things to EAT</div>
+					<div id="highlights" class="container">
+						<div class="row 150%">
+							<div class="4u 12u(mobile)">
+								<section class="highlight">
+									<a href="#" class="image featured"><img src="http://booneview.com/wp-content/uploads/2015/05/steak-300x200.jpg" alt="" /></a>
+									<h3><a href="#">Organic ingridients</a></h3>
+									<p>100% pure beef in our burgers, we’re committed to serving you the very best.</p>
+									<ul class="actions">
+										<li><a href="#" class="button style1">Learn More</a></li>
+									</ul>
+								</section>
+							</div>
+							<div class="4u 12u(mobile)">
+								<section class="highlight">
+									<a href="#" class="image featured"><img src="http://img.freepik.com/free-photo/cooking--chef-cook--basket--uniform_3226358.jpg?size=338&ext=jpg" alt="" /></a>
+									<h3><a href="#">Cherrful and educated stuff</a></h3>
+									<p>Best service provided by our stuff that has been closely selected.</p>
+									<ul class="actions">
+										<li><a href="#" class="button style1">Learn More</a></li>
+									</ul>
+								</section>
+							</div>
+							<div class="4u 12u(mobile)">
+								<section class="highlight">
+									<a href="#" class="image featured"><img src="http://www.thesassycook.com/wp-content/uploads/2014/10/StrawberriesCream_Cookies_Sandwich-Landscape-330x220.jpg" alt="" /></a>
+									<h3><a href="#">Catering. We will cook for you!</a></h3>
+									<p>A lunch for 10 people downtown? No problem. Just give us a call at 1-800-Call US!</p>
+									<ul class="actions">
+										<li><a href="#" class="button style1">Learn More</a></li>
+									</ul>
+								</section>
+							</div>
+						</div>
+					</div>
+				</div>
 
-<div class="content-wrapper">
-    <div class="content">
-        <h2 class="content-head is-center">Dear people, thank you for coming.
-The host will seat you shortly.</h2>
+			<!-- Footer -->
+				<div id="footer-wrapper" class="wrapper">922 Broadway</br>
+				New York, NY 10010</br>
+				b/t 21st St & 22nd St</br>
+				Flatiron</br>
+				Trains 'N', 'R' 23 St. and 2 more stations</br>
+				Phone number 1800 JUST CALL!
+		</div>
 
-        <div class="pure-g">
-            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+		<!-- Scripts -->
 
-                <h3 class="content-subhead">
-                    <i class="fa fa-rocket"></i>
-                    Organic ingridients
-                </h3>
-                <p>
-                    100% pure beef in our burgers, we’re committed to serving you the very best.
-                </p>
-            </div>
-            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-                <h3 class="content-subhead">
-                    <i class="fa fa-mobile"></i>
-                    Cherrful and educated stuff
-                </h3>
-                <p>
-                    Best service provided by our stuff that has been closely selected.
-                </p>
-            </div>
-            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-                <h3 class="content-subhead">
-                    <i class="fa fa-th-large"></i>
-                    Lunch Time offers
-                </h3>
-                <p>
-                    Great value deals for the fastest and best tasted lunch right in the center of NYC.
-                </p>
-            </div>
-            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-                <h3 class="content-subhead">
-                    <i class="fa fa-check-square-o"></i>
-                    Catering. We will cook for you!
-                </h3>
-                <p>
-                We cater events of virtually any size with virtually any budget. A lunch for 10 people downtown? No problem. Just give us a call at 1-800-Call US!
-                </p>
-            </div>
-        </div>
-    </div>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/skel-viewport.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
 
-    <div class="ribbon l-box-lrg pure-g">
-        <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
-            <img class="pure-img-responsive" src="">
-        </div>
-        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
-
-            <h2 class="content-head content-head-ribbon">Reviews and Home Made Reciepts</h2>
-
-        </div>
-    </div>
-
-    <div class="content">
-        <h2 class="content-head is-center">Even more faster response cook delievery, get your profile ready NOW!</h2>
-
-        <div class="pure-g">
-            <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
-                <form class="pure-form pure-form-stacked">
-                    <fieldset>
-
-                        <label for="name">Your Name</label>
-                        <input id="name" type="text" placeholder="Your Name">
-
-
-                        <label for="email">Your Email</label>
-                        <input id="email" type="email" placeholder="Your Email">
-
-                        <label for="password">Your Password</label>
-                        <input id="password" type="password" placeholder="Your Password">
-
-                        <button type="submit" class="pure-button">Sign Up</button>
-                    </fieldset>
-                </form>
-            </div>
-
-            <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
-                <h4>Contact Us</h4>
-                <p>
-                  922 Broadway
-New York, NY 10010
-b/t 21st St & 22nd St
-Flatiron
-Transit information N, R 23 St. and 2 more stations
-Phone number 1800 JUST CALL!!
-                </p>
-
-                <h4>More Information</h4>
-                <p>
-                    Just stop buy and see!
-                </p>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="footer l-box is-center">
-      Don't leave like that, grab some deserts!
-    </div>
-
-</div>
-</body>
+	</body>
 </html>
