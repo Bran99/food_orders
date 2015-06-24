@@ -35,4 +35,16 @@ UserSchema.methods.comparePassword = function(candidatePassword, cb){
 module.exports = mongoose.model('Users', UserSchema);
 
 
-// Login form
+// Signup form
+<form action="/signup" method="post">
+    <div class="form-group">
+        <label>User Name</label>
+        <input type="text" class="form-control" name="User Name" placeholder="User Name">
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" name="password">
+    </div>
+
+    <button type="submit" class="btn btn-warning btn-lg">Signup</button>
+</form>
