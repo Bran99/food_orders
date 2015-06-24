@@ -51,7 +51,7 @@ app.get('/restaurant/order', function (req, res) {
     if (err) {
       console.log(err);
     } else {
-      res.render('menu.ejs', { menu : menuArray })
+      res.render('orders.ejs', { menu : menuArray })
     };
   });
 });
