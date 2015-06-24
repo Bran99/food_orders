@@ -34,7 +34,8 @@ var menuSchema = Schema({
 }, {collection : 'menu'});
 
 var orderSchema = Schema({
-  items: [menuSchema]
+  items: [menuSchema],
+  total: Number
 }, {collection : 'orders'});
 
 var Menu = mongoose.model('Menu', menuSchema);

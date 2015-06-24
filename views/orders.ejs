@@ -31,7 +31,9 @@
       <li><%= menuItem.name %>  <small class="price"><%= menuItem.price %></small><br/><%= menuItem.description %></li>
     <% } %>
   <% }) %>
-  <div class="current-order"><small id='total'></small></div>
+  <form class="current-order">
+    total: <small id='total' name="orders[total]"></small>
+  </form>
   <script type='text/javascript' src='/scripts/orders.js'></script>
 </body>
 </html>
