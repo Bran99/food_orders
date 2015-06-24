@@ -28,7 +28,7 @@
   <% menu.forEach(function (menuItem, i) { %>
     <% if (menuItem.type === 'Entree') { %>
       <fieldset>
-        <label for=<%= "etreeName" + i %>><%= menuItem.name %>  <small><%= menuItem.price %></small><br/><%= menuItem.description %></label>
+        <label for=<%= "entreeName" + i %>><%= menuItem.name %>  <small><%= menuItem.price %></small><br/><%= menuItem.description %></label>
         <input type="hidden"
                id="<%= 'entreeName' + i %>"
                name="<%= 'orders[' + i + ']' %>"
