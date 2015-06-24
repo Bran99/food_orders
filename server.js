@@ -34,12 +34,12 @@ var menuSchema = Schema({
 }, {collection : 'menu'});
 
 var orderSchema = Schema({
-  items: [menuSchema],
+  items: [],
   total: Number
-}, {collection : 'orders'});
+}, {collection : 'orders', strict : false});
 
 var Menu = mongoose.model('Menu', menuSchema);
-var Order = mongoose.model('Order', menuSchema);
+var Order = mongoose.model('Order', orderSchema);
 
 // INDEX
 app.get('/restaurant', function (req, res) {
@@ -64,7 +64,8 @@ app.post('/restaurant', function (req, res) {
     if (err) {
       console.log(err);
     } else {
-      res.redirect(301, '/restaurant/order/' + order._id);
+      console.log(order[0]._id);
+      res.redirect(301, '/restaurant/order/' + order[0]._id);
     };
   });
 });
