@@ -92,8 +92,14 @@ app.get('/restaurant/order/:id', function (req, res) {
 
 // SHOW MENU
 app.get('/restaurant/menu', function (req, res) {
-  res.render('menu.ejs', db.collection('menu'))
-})
+  Menu.find({}, function (err, menuArray) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render('menu.ejs', { menu : menuArray })
+    };
+  });
+});
 
 // EDIT ORDER
 app.get('/restaurant/order/edit/:id', function (req, res) {
