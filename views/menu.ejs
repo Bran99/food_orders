@@ -3,28 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <title>Menu</title>
+   <link rel="stylesheet" href="../css/menu.css">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <h1>Restaurant Menu</h1>
-  <h2>Appetizers</h2>
+  <h2 class='app'>Appetizers</h2>
   <% menu.forEach(function (menuItem) { %>
     <% if (menuItem.type === 'Appetizer') { %>
       <li><%= menuItem.name %>  <small><%= menuItem.price %></small><br/><%= menuItem.description %></li>
     <% } %>
   <% }) %>
-  <h2>Entrees</h2>
+  <h2 class='entrees'>Entrees</h2>
   <% menu.forEach(function (menuItem) { %>
     <% if (menuItem.type === 'Entree') { %>
       <li><%= menuItem.name %>  <small><%= menuItem.price %></small><br/><%= menuItem.description %></li>
     <% } %>
   <% }) %>
-  <h2>Desserts</h2>
+  <h2 class='desserts'>Desserts</h2>
   <% menu.forEach(function (menuItem) { %>
     <% if (menuItem.type === 'Dessert') { %>
       <li><%= menuItem.name %>  <small><%= menuItem.price %></small><br/><%= menuItem.description %></li>
     <% } %>
   <% }) %>
-  <h2>Miscellaneous</h2>
+  <h2 class='misc'>Miscellaneous</h2>
   <% menu.forEach(function (menuItem) { %>
     <% if (menuItem.type === 'Other') { %>
       <li><%= menuItem.name %>  <small><%= menuItem.price %></small><br/><%= menuItem.description %></li>
