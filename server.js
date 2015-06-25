@@ -34,7 +34,7 @@ var menuSchema = Schema({
 }, {collection : 'menu'});
 
 var orderSchema = Schema({
-  items: [],
+  items: [menuSchema],
   total: Number
 }, {collection : 'orders', strict : false});
 
@@ -60,12 +60,12 @@ app.get('/restaurant/order', function (req, res) {
 
 // CREATE ORDER
 app.post('/restaurant', function (req, res) {
+  console.log(req.body);
   Order.create(req.body.orders, function (err, order) {
     if (err) {
       console.log(err);
     } else {
-      console.log(order[0]._id);
-      res.redirect(301, '/restaurant/order/' + order[0]._id);
+      res.redirect(301, '/restaurant/order/' + order._id);
     };
   });
 });
@@ -87,6 +87,7 @@ app.get('/restaurant/order/:id', function (req, res) {
     if (err) {
       console.log(err);
     } else {
+      console.log(order);
       res.render('show.ejs', { orders : order });
     };
   });
@@ -120,7 +121,7 @@ app.get('/restaurant/menu/edit', function (req, res) {
 });
 
 // UPDATE
-app.patch('/restaurant/order/:id', function (req, res) {
+app.patch('/restaurant/order', function (req, res) {
   var id = new ObjectId(req.params.id);
   Order.update({_id : id}, req.body.orders, function (err, result) {
     if (err) {
@@ -132,7 +133,7 @@ app.patch('/restaurant/order/:id', function (req, res) {
 });
 
 // DELETE
-app.delete('/restaurant/order/:id', function (req, res) {
+app.delete('/restaurant/order', function (req, res) {
   var id = new ObjectId(req.params.id);
   Order.remove({_id : id}, function (err, result) {
     if (err) {

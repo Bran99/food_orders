@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Order</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
   <script src="/scripts/jquery.js"></script>
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
@@ -28,7 +29,7 @@
   <% menu.forEach(function (menuItem, i) { %>
     <% if (menuItem.type === 'Entree') { %>
       <fieldset>
-        <label for=<%= "etreeName" + i %>><%= menuItem.name %>  <small><%= menuItem.price %></small><br/><%= menuItem.description %></label>
+        <label for=<%= "entreeName" + i %>><%= menuItem.name %>  <small><%= menuItem.price %></small><br/><%= menuItem.description %></label>
         <input type="hidden"
                id="<%= 'entreeName' + i %>"
                name="<%= 'orders[' + i + ']' %>"
@@ -72,12 +73,15 @@
       </fieldset>
     <% } %>
   <% }) %>
-  <form class="current-order" action="/restaurant" method="post">
-    <br/>
-    total: <label id="totalHere" for="total"></label><br/>
-    <input type="hidden" id='total' name="total"%>>
-    <input type="submit" value="Place Order">
-  </form>
-  <script type='text/javascript' src='/scripts/orders.js'></script>
+  <div>
+    <h3>Current Order</h3>
+    <form id="placeanorder" class="current-order" action="/restaurant" method="post">
+      <br/>
+      total: <label id="totalHere" for="total"></label><br/>
+      <input type="hidden" id='total' name="orders[total]"%>>
+      <input type="submit" value="Place Order">
+    </form>
+    <script type='text/javascript' src='/scripts/orders.js'></script>
+  </div>
 </body>
 </html>

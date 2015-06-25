@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit your order!</title>
+</head>
+<body>
+  <% for (var i = 0; i < orders.items.length; i++) { %>
+    <li><%= orders.items[i].name %>
+      <small><%= orders.items[i].price %></small>
+    </li>
+  <% } %>
+    <li>total: <%= orders['total'] %></li>
+
+    <form action="/restaurant/order?_method=PATCH" method="post">
+      <label for="patch">Edit Order</label>
+      <input id="patch"type="hidden" value="<%= orders._id %>">
+    </form>
+    <form action="/restaurant/order?_method=DELETE" method="post">
+      <label for="delete">Cancel Order</label>
+      <input id="delete"type="hidden" value="<%= orders._id %>">
+    </form>
+</body>
+</html>
