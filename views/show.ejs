@@ -2,23 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="/assets/css/show.css" />
   <title>Edit your order!</title>
 </head>
 <body>
-  <% for (var i = 0; i < orders.items.length; i++) { %>
-    <li><%= orders.items[i].name %>
-      <small><%= orders.items[i].price %></small>
-    </li>
-  <% } %>
-    <li>total: <%= orders['total'] %></li>
-
-    <form action="/restaurant/order?_method=PATCH" method="post">
-      <label for="patch">Edit Order</label>
-      <input id="patch"type="hidden" value="<%= orders._id %>">
-    </form>
-    <form action="/restaurant/order?_method=DELETE" method="post">
-      <label for="delete">Cancel Order</label>
-      <input id="delete"type="hidden" value="<%= orders._id %>">
-    </form>
+  <h2>Order Summary</h2>
+  <div>
+    <% for (var i = 0; i < orders.items.length; i++) { %>
+      <li><%= orders.items[i].name %>
+        <small>$<%= orders.items[i].price %></small>
+      </li>
+    <% } %>
+      <br/><li class="total">Total: $<%= orders['total'] %></li>
+  </div>
+  <form action="/restaurant/order" method="post">
+    <input type="hidden">
+    <input type="submit" value="Confirm Order">
+  </form>
+  <form action="/restaurant/order?_method=PATCH" method="post">
+    <input type="hidden" value="<%= orders._id %>">
+    <input type="submit" value="Edit Order">
+  </form>
+  <form action="/restaurant/order?_method=DELETE" method="post">
+    <input type="hidden" value="<%= orders._id %>">
+    <input type="submit" value="Cancel Order">
+  </form>
 </body>
 </html>

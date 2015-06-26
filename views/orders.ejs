@@ -5,83 +5,96 @@
   <title>Order</title>
   <link rel="stylesheet" href="assets/css/main.css" />
   <script src="/scripts/jquery.js"></script>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-</head>
+  <link rel="stylesheet" href="/assets/css/menu.css"></head>
 <body>
-  <h1>Restaurant Menu</h1>
-  <h2>Appetizers</h2>
-  <% menu.forEach(function (menuItem, i) { %>
-    <% if (menuItem.type === 'Appetizer') { %>
-      <fieldset>
-        <label for=<%= "appName" + i %>><%= menuItem.name %>  <small><%= menuItem.price %></small><br/><%= menuItem.description %></label>
-        <input type="hidden"
-               id="<%= 'appName' + i %>"
-               name="<%= 'orders[' + i + ']' %>"
-               data-name="<%= menuItem.name %>"
-               data-description="<%= menuItem.description %>"
-               data-price="<%= menuItem.price %>"
-               data-type="<%= menuItem.type %>"
-               >
-      </fieldset>
-    <% } %>
-  <% }) %>
-  <h2>Entrees</h2>
-  <% menu.forEach(function (menuItem, i) { %>
-    <% if (menuItem.type === 'Entree') { %>
-      <fieldset>
-        <label for=<%= "entreeName" + i %>><%= menuItem.name %>  <small><%= menuItem.price %></small><br/><%= menuItem.description %></label>
-        <input type="hidden"
-               id="<%= 'entreeName' + i %>"
-               name="<%= 'orders[' + i + ']' %>"
-               data-name="<%= menuItem.name %>"
-               data-description="<%= menuItem.description %>"
-               data-price="<%= menuItem.price %>"
-               data-type="<%= menuItem.type %>"
-               >
-      </fieldset>
-    <% } %>
-  <% }) %>
-  <h2>Desserts</h2>
-  <% menu.forEach(function (menuItem, i) { %>
-    <% if (menuItem.type === 'Dessert') { %>
-      <fieldset>
-        <label for=<%= "dessertName" + i %>><%= menuItem.name %>  <small><%= menuItem.price %></small><br/><%= menuItem.description %></label>
-        <input type="hidden"
-               id="<%= 'dessertName' + i %>"
-               name="<%= 'orders[' + i + ']' %>"
-               data-name="<%= menuItem.name %>"
-               data-description="<%= menuItem.description %>"
-               data-price="<%= menuItem.price %>"
-               data-type="<%= menuItem.type %>"
-               >
-      </fieldset>
-    <% } %>
-  <% }) %>
-  <h2>Miscellaneous</h2>
-  <% menu.forEach(function (menuItem, i) { %>
-    <% if (menuItem.type === 'Other') { %>
-      <fieldset>
-        <label for=<%= "otherName" + i %>><%= menuItem.name %>  <small><%= menuItem.price %></small><br/><%= menuItem.description %></label>
-        <input type="hidden"
-               id="<%= 'otherName' + i %>"
-               name="<%= 'orders[' + i + ']' %>"
-               data-name="<%= menuItem.name %>"
-               data-description="<%= menuItem.description %>"
-               data-price="<%= menuItem.price %>"
-               data-type="<%= menuItem.type %>"
-               >
-      </fieldset>
-    <% } %>
-  <% }) %>
   <div>
-    <h3>Current Order</h3>
-    <form id="placeanorder" class="current-order" action="/restaurant" method="post">
-      <br/>
-      total: <label id="totalHere" for="total"></label><br/>
-      <input type="hidden" id='total' name="orders[total]"%>>
-      <input type="submit" value="Place Order">
+    <h1>Restaurant Menu</h1>
+    <div class="section">
+      <h2>Appetizers</h2>
+      <% menu.forEach(function (menuItem, i) { %>
+        <% if (menuItem.type === 'Appetizer') { %>
+          <fieldset>
+            <label for=<%= "appName" + i %>><%= menuItem.name %>  <small><%= menuItem.price %></small><br/><%= menuItem.description %></label>
+            <input type="hidden"
+                   id="<%= 'appName' + i %>"
+                   name="<%= 'orders[' + i + ']' %>"
+                   data-name="<%= menuItem.name %>"
+                   data-description="<%= menuItem.description %>"
+                   data-price="<%= menuItem.price %>"
+                   data-type="<%= menuItem.type %>"
+                   >
+          </fieldset>
+        <% } %>
+      <% }) %>
+    </div>
+    <div class="section">
+      <h2>Entrees</h2>
+      <% menu.forEach(function (menuItem, i) { %>
+        <% if (menuItem.type === 'Entree') { %>
+          <fieldset>
+            <label for=<%= "entreeName" + i %>><%= menuItem.name %>  <small><%= menuItem.price %></small><br/><%= menuItem.description %></label>
+            <input type="hidden"
+                   id="<%= 'entreeName' + i %>"
+                   name="<%= 'orders[' + i + ']' %>"
+                   data-name="<%= menuItem.name %>"
+                   data-description="<%= menuItem.description %>"
+                   data-price="<%= menuItem.price %>"
+                   data-type="<%= menuItem.type %>"
+                   >
+          </fieldset>
+        <% } %>
+      <% }) %>
+    </div>
+    <div class="section">
+      <h2>Desserts</h2>
+      <% menu.forEach(function (menuItem, i) { %>
+        <% if (menuItem.type === 'Dessert') { %>
+          <fieldset>
+            <label for=<%= "dessertName" + i %>><%= menuItem.name %>  <small><%= menuItem.price %></small><br/><%= menuItem.description %></label>
+            <input type="hidden"
+                   id="<%= 'dessertName' + i %>"
+                   name="<%= 'orders[' + i + ']' %>"
+                   data-name="<%= menuItem.name %>"
+                   data-description="<%= menuItem.description %>"
+                   data-price="<%= menuItem.price %>"
+                   data-type="<%= menuItem.type %>"
+                   >
+          </fieldset>
+        <% } %>
+      <% }) %>
+    </div>
+    <div class="section">
+      <h2>Miscellaneous</h2>
+      <% menu.forEach(function (menuItem, i) { %>
+        <% if (menuItem.type === 'Other') { %>
+          <fieldset>
+            <label for=<%= "otherName" + i %>><%= menuItem.name %>  <small><%= menuItem.price %></small><br/><%= menuItem.description %></label>
+            <input type="hidden"
+                   id="<%= 'otherName' + i %>"
+                   name="<%= 'orders[' + i + ']' %>"
+                   data-name="<%= menuItem.name %>"
+                   data-description="<%= menuItem.description %>"
+                   data-price="<%= menuItem.price %>"
+                   data-type="<%= menuItem.type %>"
+                   >
+          </fieldset>
+        <% } %>
+      <% }) %>
+    </div>
+    <div class="orders">
+      <div class="cart">
+        <h3>Current Order</h3>
+        <form id="placeanorder" class="current-order" action="/restaurant" method="post">
+          <br/>
+      </div>
+      <div class="total">
+        total: <label id="totalHere" for="total"></label><br/>
+        <input type="hidden" id='total' name="orders[total]"%>>
+        <input type="submit" value="Place Order">
+      </div>
+    </div>
+  </div>
     </form>
     <script type='text/javascript' src='/scripts/orders.js'></script>
-  </div>
 </body>
 </html>

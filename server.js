@@ -57,10 +57,13 @@ app.get('/restaurant/order', function (req, res) {
   });
 });
 
+// CONFIRM ORDER
+app.post('/restaurant/order', function (req, res) {
+  res.redirect(301, '/restaurant');
+})
 
 // CREATE ORDER
 app.post('/restaurant', function (req, res) {
-  console.log(req.body);
   Order.create(req.body.orders, function (err, order) {
     if (err) {
       console.log(err);
@@ -87,7 +90,6 @@ app.get('/restaurant/order/:id', function (req, res) {
     if (err) {
       console.log(err);
     } else {
-      console.log(order);
       res.render('show.ejs', { orders : order });
     };
   });
@@ -107,12 +109,12 @@ app.get('/restaurant/menu', function (req, res) {
 // EDIT ORDER
 app.get('/restaurant/order/edit/:id', function (req, res) {
   Menu.findById(req.params.id, function (err, order) {
-      if (err) {
-        console.log(err);
-      } else {
-        res.render('order_edit.ejs', { orders : order });
-      };
-    });
+    if (err) {
+      console.log(err);
+    } else {
+      res.render('order_edit.ejs', { orders : order });
+    };
+  });
 });
 
 // EDIT MENU
@@ -134,7 +136,7 @@ app.patch('/restaurant/order', function (req, res) {
 
 // DELETE
 app.delete('/restaurant/order', function (req, res) {
-  var id = new ObjectId(req.params.id);
+  var id = new ObjectId(req.body.id);
   Order.remove({_id : id}, function (err, result) {
     if (err) {
       console.log(err);
